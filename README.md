@@ -97,7 +97,7 @@
 	                .create(APIService.class);
 
 4. 添加网络接口，APIService.java 和 HttpSend.java  
-	APIService.java  ，Retrofit接口请求方式，详细参考官网**http://square.github.io/retrofit/**。常用方式记录：   
+	APIService.java  ，Retrofit接口请求方式，详细参考官网** http://square.github.io/retrofit/ **。常用方式记录：   
 
   - GET请求    
 	
