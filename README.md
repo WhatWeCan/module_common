@@ -12,7 +12,18 @@
 - ToastUtils
 	
 ### 公共组件
-- CusTitleBar标题栏	
+- CusTitleBar标题栏
+	设置左右图片以及标题	  
+
+		<com.tjstudy.common.widget.CusTitleBar
+		    android:id="@+id/title_bar"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    app:titleBarLeftImage="@drawable/ease_mm_title_back" /> 
+	
+		titleBar = (EaseTitleBar) getView().findViewById(R.id.title_bar);
+		titleBar.setTitle("张建国");
+		titleBar.setRightImageResource(R.drawable.ease_mm_title_remove);
 ### Retrofit+RxJava使用
 网络相关代码都在http包，根据实际需求，参考使用步骤：   
  
