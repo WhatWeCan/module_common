@@ -93,11 +93,11 @@ class RetrofitBuilder {
     /**
      * 链接超时时间
      */
-    private byte connectTimeout = 15;
+    private int connectTimeout = 15;
     /**
      * 读取数据超时时间
      */
-    private byte readTimeout = 15;
+    private int readTimeout = 15;
 
     /**
      * 连接失败是否重连
@@ -124,12 +124,12 @@ class RetrofitBuilder {
      */
     private Map<String, String> commonParams = new HashMap<>();
 
-    public RetrofitBuilder connectTimeout(byte connectTimeout) {
+    public RetrofitBuilder connectTimeout(int connectTimeout) {
         this.connectTimeout = connectTimeout;
         return this;
     }
 
-    public RetrofitBuilder readTimeout(byte readTimeout) {
+    public RetrofitBuilder readTimeout(int readTimeout) {
         this.readTimeout = readTimeout;
         return this;
     }
@@ -149,6 +149,10 @@ class RetrofitBuilder {
         this.cache = true;
         this.cacheSize = cacheSize;
         this.cacheValidTime = cacheValidTime;
+        return this;
+    }
+    public RetrofitBuilder cache(boolean isCache){
+        this.cache = isCache;
         return this;
     }
 
@@ -217,14 +221,7 @@ class RetrofitBuilder {
             try {
                 Gson gson = new Gson();
                 BaseResponse baseResponse = gson.fromJson(bodyString, BaseResponse.class);
-                int code = baseResponse.getCode();
                 // TODO: 2018/1/12 统一处理服务器反馈数据
-                switch (code) {
-                    case HttpConstants.CODE_OK:
-                        break;
-                    case HttpConstants.CODE_TOKEN_EXPIRED:
-                        break;
-                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
